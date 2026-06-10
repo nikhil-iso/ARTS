@@ -149,6 +149,46 @@ Expected result:
 
 When the board is sitting still, total acceleration should be around 1 g.
 
+### MPU6050 Test
+
+Folder:
+
+```text
+flight_computer/testing/mpu6050_test
+```
+
+This checks the MPU6050 accelerometer and gyro on the I2C bus.
+
+Expected result:
+
+- `WHO_AM_I` prints as `0x68`
+- acceleration prints in g
+- gyro rates print in degrees per second
+- basic pitch and roll print in degrees
+
+If the board is sitting still, the gyro values should be close to 0 deg/s.
+
+### MPU6050 Visualizer
+
+Folder:
+
+```text
+flight_computer/testing/mpu6050_visualizer
+```
+
+This streams pitch, roll, and yaw over USB Serial and uses Python to draw a simple 3D rocket orientation view.
+
+Run after uploading the firmware:
+
+```powershell
+pip install pyserial matplotlib numpy
+python tools\visualize_orientation.py --port COM5
+```
+
+Replace `COM5` with the Teensy serial port. Keep the rocket still during startup because the firmware calibrates the gyro first.
+
+The red line in the plot is the rocket body/nose direction. The visualizer assumes the rocket nose is along the sensor's local `+Y` direction. Yaw will drift over time because the MPU6050 does not have a magnetometer.
+
 ## GPS Antenna Orientation Test
 
 Folder:
@@ -235,7 +275,9 @@ For HDOP, lower is better. For SNR and satellite counts, higher is better.
 3. Run `tmp102_test`.
 4. Run `bmp280_test`.
 5. Run `kx134_test`.
-6. Run `gps_test`.
-7. Add the MPU6050 and run `gps_orientation_test`.
+6. Run `mpu6050_test`.
+7. Run `mpu6050_visualizer`.
+8. Run `gps_test`.
+9. Add the MPU6050 and run `gps_orientation_test`.
 
 This order keeps the debugging simple. If something fails, there are fewer parts involved.
