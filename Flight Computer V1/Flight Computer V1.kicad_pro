@@ -472,7 +472,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "flight computer.kicad_pro",
+    "filename": "Flight Computer V1.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -627,18 +627,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "flight computer.kicad_sch",
-        "name": "flight computer",
-        "uuid": "88f48b7b-7c48-46cb-ba70-3cc3ac530486"
+        "filename": "Flight Computer V1.kicad_sch",
+        "name": "Root",
+        "uuid": "77b347a3-305c-4f37-a54a-3926f0f0c329"
       }
     ],
-    "used_designators": "U1-3,U5-6,R1,BZ1,J1,pz1,BT1",
+    "used_designators": "C11-22,R9-14,U8-9",
     "variants": []
   },
   "sheets": [
     [
-      "88f48b7b-7c48-46cb-ba70-3cc3ac530486",
-      "flight computer"
+      "77b347a3-305c-4f37-a54a-3926f0f0c329",
+      "Root"
     ]
   ],
   "text_variables": {},
